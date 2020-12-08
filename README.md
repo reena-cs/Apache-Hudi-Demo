@@ -2,7 +2,7 @@
 A small example which showcases Hudi Insert, Update and delete.
 
 
-# sharting a spark shell
+# starting a spark shell
 pyspark   --packages org.apache.hudi:hudi-spark-bundle_2.11:0.6.0,org.apache.spark:spark-avro_2.11:2.4.6   --conf 'spark.serializer=org.apache.spark.serializer.KryoSerializer' --conf "spark.sql.hive.convertMetastoreParquet=false" 
 
 # Table creation in Athena
