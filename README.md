@@ -50,9 +50,7 @@ LOCATION
 select count(distinct(factor)) from "hudi"."Maintable"
 
 
-## commit rollback
-CLI
-
+## commit rollback - use AWS EMR CLI
 /usr/lib/hudi/cli/bin/hudi-cli.sh
 
 connect --path s3://<bucket-name>/hudi_output/Maintable
