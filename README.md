@@ -54,8 +54,13 @@ select count(distinct(factor)) from "hudi"."Maintable"
 CLI
 
 /usr/lib/hudi/cli/bin/hudi-cli.sh
+
 connect --path s3://<bucket-name>/hudi_output/Maintable
+  
 desc 
+
 help
+
 commits show --sortBy "CommitTime" --desc true --limit 10
-commit rollback --commit 
+
+commit rollback --commit ##commit_no##
