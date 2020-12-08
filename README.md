@@ -29,23 +29,23 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat'
 LOCATION
-  's3://<bucket-key>/hudi_output/Maintable'
+  's3://bucket-name/hudi_output/Maintable'
   
   
   ## add partitions
  
  ALTER TABLE cookietable ADD
  PARTITION (partition_date='20201001') 
- LOCATION 's3://<bucket-name>/hudi_output/Maintable/20201001'
+ LOCATION 's3://bucket-name/hudi_output/Maintable/20201001'
  
 
  ALTER TABLE cookietable ADD
  PARTITION (partition_date='20201002') 
- LOCATION 's3://<bucket-name>/hudi_output/Maintable/20201002'
+ LOCATION 's3://bucket-name/hudi_output/Maintable/20201002'
  
   ALTER TABLE cookietable ADD
  PARTITION (partition_date='20201003') 
- LOCATION 's3://<bucket-name>/hudi_output/Maintable/20201003'
+ LOCATION 's3://bucket-name/hudi_output/Maintable/20201003'
 
 select count(distinct(factor)) from "hudi"."Maintable"
 
@@ -53,7 +53,7 @@ select count(distinct(factor)) from "hudi"."Maintable"
 ## commit rollback - use AWS EMR CLI
 /usr/lib/hudi/cli/bin/hudi-cli.sh
 
-connect --path s3://<bucket-name>/hudi_output/Maintable
+connect --path s3://bucket-name/hudi_output/Maintable
   
 desc 
 
